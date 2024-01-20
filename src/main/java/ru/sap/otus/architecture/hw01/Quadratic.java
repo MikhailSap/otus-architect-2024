@@ -9,6 +9,14 @@ public class Quadratic {
     private final static double EPSILON = 0.00000001;
 
     public static List<Double> solve(double a, double b, double c) {
+        if (checkNan(a) || checkNan(b) || checkNan(c)) {
+            throw new IllegalArgumentException("Коэффициент не может быть NaN");
+        }
+
+        if (checkInfinite(a) || checkInfinite(b) || checkInfinite(c)) {
+            throw new IllegalArgumentException("Коэффициент не может быть Infinite");
+        }
+
         if (Math.abs(a) < EPSILON) {
             throw new IllegalArgumentException("Коэффициент a не может быть равен 0");
         }
@@ -38,5 +46,12 @@ public class Quadratic {
 
     private static double scoreSolve(double b, double sqrtDisc, double a) {
         return (-b + sqrtDisc) / (2 * a);
+    }
+
+    private static boolean checkNan(double number) {
+        return ((Double) number).isNaN();
+    }
+    private static boolean checkInfinite(double number) {
+        return ((Double) number).isInfinite();
     }
 }

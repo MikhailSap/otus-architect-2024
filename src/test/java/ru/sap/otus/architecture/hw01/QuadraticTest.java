@@ -53,4 +53,83 @@ public class QuadraticTest {
         double c = 1;
         Quadratic.solve(a, b, c);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void aNanTest() {
+        // коэффициент a = NaN, ожидаем исключение
+        double a = Double.NaN;
+        double b = 2;
+        double c = 1;
+        Quadratic.solve(a, b, c);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void aPositiveInfiniteTest() {
+        // коэффициент a = POSITIVE_INFINITY, ожидаем исключение
+        double a = Double.POSITIVE_INFINITY;
+        double b = 2;
+        double c = 1;
+        Quadratic.solve(a, b, c);
+    }    @Test(expected = IllegalArgumentException.class)
+    public void aNegativeInfiniteTest() {
+        // коэффициент a = NEGATIVE_INFINITY, ожидаем исключение
+        double a = Double.NEGATIVE_INFINITY;
+        double b = 2;
+        double c = 1;
+        Quadratic.solve(a, b, c);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void bNanTest() {
+        // коэффициент b = NaN, ожидаем исключение
+        double a = 1;
+        double b = Double.NaN;
+        double c = 1;
+        Quadratic.solve(a, b, c);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void bPositiveInfiniteTest() {
+        // коэффициент b = POSITIVE_INFINITY, ожидаем исключение
+        double a = 1;
+        double b = Double.POSITIVE_INFINITY;
+        double c = 1;
+        Quadratic.solve(a, b, c);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void bNegativeInfiniteTest() {
+        // коэффициент b = NEGATIVE_INFINITY, ожидаем исключение
+        double a = 1;
+        double b = Double.NEGATIVE_INFINITY;
+        double c = 1;
+        Quadratic.solve(a, b, c);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void cNanTest() {
+        // коэффициент c = NaN, ожидаем исключение
+        double a = 1;
+        double b = 2;
+        double c = Double.NaN;
+        Quadratic.solve(a, b, c);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void cPositiveInfiniteTest() {
+        // коэффициент c = POSITIVE_INFINITY, ожидаем исключение
+        double a = 1;
+        double b = 2;
+        double c = Double.POSITIVE_INFINITY;
+        Quadratic.solve(a, b, c);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void cNegativeInfiniteTest() {
+        // коэффициент c = NEGATIVE_INFINITY, ожидаем исключение
+        double a = 1;
+        double b = 2;
+        double c = Double.NEGATIVE_INFINITY;
+        Quadratic.solve(a, b, c);
+    }
 }
