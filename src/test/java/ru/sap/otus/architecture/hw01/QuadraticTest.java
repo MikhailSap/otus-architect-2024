@@ -1,12 +1,13 @@
 package ru.sap.otus.architecture.hw01;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class QuadraticTest {
+
+public class QuadraticTest {
 
     @Test
     public void noSolvesTest() {
@@ -42,5 +43,14 @@ class QuadraticTest {
         List<Double> solves = Quadratic.solve(a, b, c);
         assertEquals(1, solves.size());
         assertTrue(solves.contains(-1D));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void illegalATest() {
+        // коэффициент a = 0, ожидаем исключение
+        double a = 0;
+        double b = 2;
+        double c = 1;
+        Quadratic.solve(a, b, c);
     }
 }

@@ -9,6 +9,10 @@ public class Quadratic {
     private final static double EPSILON = 0.0000001;
 
     public static List<Double> solve(double a, double b, double c) {
+        if (Math.abs(a - 0) < EPSILON) {
+            throw new IllegalArgumentException("Коэффициент a не может быть равен 0");
+        }
+
         List<Double> solves = new ArrayList<>();
         double disc = scoreD(a, b, c);
         if (disc < 0) {
