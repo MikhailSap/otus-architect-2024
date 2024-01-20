@@ -16,7 +16,19 @@ class QuadraticTest {
         double c = 1;
 
         List<Double> solves = Quadratic.solve(a, b, c);
-        assert solves != null;
         assertTrue(solves.isEmpty());
+    }
+
+    @Test
+    public void twoSolvesTest() {
+        // уравнение x^2-1 = 0, конри x1=1, x2=-1
+        double a = 1;
+        double b = 0;
+        double c = -1;
+
+        List<Double> solves = Quadratic.solve(a, b, c);
+        assertEquals(2, solves.size());
+        assertTrue(solves.contains(1D));
+        assertTrue(solves.contains(-1D));
     }
 }
