@@ -35,14 +35,14 @@ public class QuadraticTest {
 
     @Test
     public void oneSolvesTest() {
-        // уравнение x^2+2x+1 = 0, конри x1 = x2 = -1
-        double a = 1;
-        double b = 2;
-        double c = 1;
+        // уравнение 0.5x^2+0.0001x+0.0000000025 = 0, конри x1 = x2 = -2.928932188134525E-5
+        double a = 0.5;
+        double b = 0.0001;
+        double c = 0.0000000025;
 
         List<Double> solves = Quadratic.solve(a, b, c);
         assertEquals(1, solves.size());
-        assertTrue(solves.contains(-1D));
+        assertTrue(solves.contains(-2.928932188134525E-5));
     }
 
     @Test(expected = IllegalArgumentException.class)

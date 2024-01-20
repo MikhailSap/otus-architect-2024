@@ -6,10 +6,10 @@ import java.util.List;
 import static java.util.Collections.emptyList;
 
 public class Quadratic {
-    private final static double EPSILON = 0.0000001;
+    private final static double EPSILON = 0.00000001;
 
     public static List<Double> solve(double a, double b, double c) {
-        if (Math.abs(a - 0) < EPSILON) {
+        if (Math.abs(a) < EPSILON) {
             throw new IllegalArgumentException("Коэффициент a не может быть равен 0");
         }
 
@@ -19,12 +19,13 @@ public class Quadratic {
             return emptyList();
         }
 
-        if (disc > 0) {
+        if (disc >= EPSILON) {
             solves.add(scoreSolve(b, Math.sqrt(disc), a));
             solves.add(scoreSolve(b, -Math.sqrt(disc), a));
         }
 
-        if (Math.abs(disc - 0) < EPSILON) {
+        // тут брать модуль не имеет смысла т. к. в этот иф могут попасть только положительные числа
+        if (disc < EPSILON) {
             solves.add(scoreSolve(b, Math.sqrt(disc), a));
         }
 
