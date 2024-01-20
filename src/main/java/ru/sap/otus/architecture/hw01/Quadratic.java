@@ -6,6 +6,8 @@ import java.util.List;
 import static java.util.Collections.emptyList;
 
 public class Quadratic {
+    private final static double EPSILON = 0.0000001;
+
     public static List<Double> solve(double a, double b, double c) {
         List<Double> solves = new ArrayList<>();
         double disc = scoreD(a, b, c);
@@ -16,6 +18,10 @@ public class Quadratic {
         if (disc > 0) {
             solves.add(scoreSolve(b, Math.sqrt(disc), a));
             solves.add(scoreSolve(b, -Math.sqrt(disc), a));
+        }
+
+        if (Math.abs(disc - 0) < EPSILON) {
+            solves.add(scoreSolve(b, Math.sqrt(disc), a));
         }
 
         return solves;

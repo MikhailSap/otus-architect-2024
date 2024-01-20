@@ -31,4 +31,16 @@ class QuadraticTest {
         assertTrue(solves.contains(1D));
         assertTrue(solves.contains(-1D));
     }
+
+    @Test
+    public void oneSolvesTest() {
+        // уравнение x^2+2x+1 = 0, конри x1 = x2 = -1
+        double a = 1;
+        double b = 2;
+        double c = 1;
+
+        List<Double> solves = Quadratic.solve(a, b, c);
+        assertEquals(1, solves.size());
+        assertTrue(solves.contains(-1D));
+    }
 }
